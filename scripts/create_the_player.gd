@@ -14,9 +14,6 @@ func _ready():
 	# adiciona a cena da camera como filha da nave
 	scene_nave.add_child(camera_scene)
 	
-	var paralax_scene = preload("res://cenas/efeitos/parallax/ParallaxBackground.tscn").instance()
-	camera_scene.add_child(paralax_scene)
-	
 	# modifica as vars no global para os outros objs terem acesso a ela, por ex: o joystick
 	global.nave_carregada = true
 	global.nave_player = scene_nave

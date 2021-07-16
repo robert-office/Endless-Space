@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/backgrounds/1024x1024 Purple Nebula 5.png" type="Texture" id=1]
+
+[node name="parallax_background" type="ParallaxBackground"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 4000, 1750 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 1997.25, 873.232 )
+scale = Vector2( 0.977, 0.428 )
+texture = ExtResource( 1 )
