@@ -6,7 +6,7 @@
 [ext_resource path="res://cenas/GUI/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://cenas/efeitos/nebulas/nebula1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://cenas/agrupadores/objetos.tscn" type="PackedScene" id=6]
-[ext_resource path="res://cenas/Backgrounds/parallax_background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://cenas/Planets/Planeta_Earth.tscn" type="PackedScene" id=7]
 [ext_resource path="res://cenas/efeitos/parallax/Parallax_Effects.tscn" type="PackedScene" id=8]
 
 [node name="global" type="Node"]
@@ -16,9 +16,6 @@ script = ExtResource( 1 )
 z_index = -101
 z_as_relative = false
 
-[node name="parallax_background" parent="Background" instance=ExtResource( 7 )]
-layer = -100
-
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Efeitos" type="Node2D" parent="Main"]
@@ -26,17 +23,43 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="nebula4" parent="Main/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 11134.1, -3890.58 )
+rotation = 0.575959
+scale = Vector2( 30.6971, 21.6742 )
+
 [node name="nebula1" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( -5078.5, -575.265 )
+position = Vector2( -7250.73, 6982.29 )
 rotation = 0.246091
-scale = Vector2( 37.1425, 41.9862 )
+scale = Vector2( 15.6369, 16.2519 )
 
 [node name="nebula2" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( 8646.27, 404.342 )
+position = Vector2( 5781.02, 6519.95 )
 rotation = -2.11883
-scale = Vector2( 28.8824, 34.8356 )
+scale = Vector2( 16.3992, 20.1771 )
+
+[node name="nebula3" parent="Main/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -3630.34, 1280.18 )
+rotation = 2.95659
+scale = Vector2( 15.6369, 16.2519 )
+
+[node name="nebula5" parent="Main/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 13054.1, 14157.4 )
+rotation = 2.40157
+scale = Vector2( 30.6971, 21.6742 )
+
+[node name="nebula6" parent="Main/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -9345.93, 16717.4 )
+rotation = 3.50986
+scale = Vector2( 30.6971, 21.6742 )
+
+[node name="nebula7" parent="Main/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -14465.9, -3250.58 )
+rotation = 2.34398
+scale = Vector2( 30.6971, 21.6742 )
 
 [node name="ParallaxBackground" parent="Main/Efeitos" instance=ExtResource( 8 )]
+layer = -1
 
 [node name="Objetos" parent="Main" instance=ExtResource( 6 )]
 
@@ -84,6 +107,13 @@ position = Vector2( -3032.34, 5335.67 )
 
 [node name="nave_inimiga14" parent="Main/Objetos" instance=ExtResource( 3 )]
 position = Vector2( 3939.87, 4828.29 )
+
+[node name="Planeta" type="Node2D" parent="Main"]
+position = Vector2( -108.998, 9275.22 )
+
+[node name="Planeta_Earth" parent="Main/Planeta" instance=ExtResource( 7 )]
+position = Vector2( -8.54053, -0.332031 )
+scale = Vector2( 3, 3 )
 
 [node name="GUI" parent="Main" instance=ExtResource( 4 )]
 margin_left = 8.0
