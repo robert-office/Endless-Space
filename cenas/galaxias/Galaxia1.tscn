@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/global.gd" type="Script" id=1]
+[ext_resource path="res://cenas/instanciadores/create_the_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cenas/naves/naves_inimigas/nave_inimiga1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://cenas/GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cenas/efeitos/nebulas/nebula1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cenas/agrupadores/objetos.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/backgrounds/1024x1024 Purple Nebula 5.png" type="Texture" id=7]
+[ext_resource path="res://cenas/efeitos/parallax/ParallaxBackground.tscn" type="PackedScene" id=8]
+
+[node name="global" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="GUI" parent="Main" instance=ExtResource( 4 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 3008.0
+margin_bottom = 1508.0
+
+[node name="Background" type="Node2D" parent="Main"]
+z_index = -1
+z_as_relative = false
+
+[node name="TextureRect" type="TextureRect" parent="Main/Background"]
+margin_left = -16119.5
+margin_top = -10610.4
+margin_right = 16189.5
+margin_bottom = 10580.6
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Efeitos" type="Node2D" parent="Main/Background"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="nebula1" parent="Main/Background/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -5078.5, -575.265 )
+rotation = 0.246091
+scale = Vector2( 37.1425, 41.9862 )
+
+[node name="nebula2" parent="Main/Background/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 8646.27, 404.342 )
+rotation = -2.11883
+scale = Vector2( 28.8824, 34.8356 )
+
+[node name="ParallaxBackground" parent="Main/Background/Efeitos" instance=ExtResource( 8 )]
+
+[node name="Objetos" parent="Main" instance=ExtResource( 6 )]
+
+[node name="generate_the_player" parent="Main/Objetos" instance=ExtResource( 2 )]
+
+[node name="nave_inimiga1" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( 2474.69, -3959.86 )
+
+[node name="nave_inimiga2" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -4096.17, -5135.26 )
+
+[node name="nave_inimiga3" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -6327.52, 6142.41 )
+
+[node name="nave_inimiga4" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -11674.1, 5903.25 )
+
+[node name="nave_inimiga5" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( 6057.78, -1026.3 )
+
+[node name="nave_inimiga6" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -1696.63, 3538.72 )
+
+[node name="nave_inimiga7" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -2603.6, -2702.61 )
+
+[node name="nave_inimiga8" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -7587.86, 933.739 )
+
+[node name="nave_inimiga9" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( 7354.27, 3290.33 )
+
+[node name="nave_inimiga10" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -5855.01, -1956.14 )
+
+[node name="nave_inimiga11" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( 5276.68, -5565.74 )
+
+[node name="nave_inimiga12" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -10415.2, -333.01 )
+
+[node name="nave_inimiga13" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -3032.34, 5335.67 )
+
+[node name="nave_inimiga14" parent="Main/Objetos" instance=ExtResource( 3 )]
+position = Vector2( 3939.87, 4828.29 )

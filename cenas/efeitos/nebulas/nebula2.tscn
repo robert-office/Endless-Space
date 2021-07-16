@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/efeitos/nebulas/Nebula2.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="AnimatedSprite"]
+position = Vector2( 5205.63, 3673.08 )
+scale = Vector2( 13.0627, 10.0528 )
+frames = SubResource( 1 )

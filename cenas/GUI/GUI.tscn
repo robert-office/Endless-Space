@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/analog_controller/analog.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/efeitos/life/5a0fcca0-2a6c-48ff-8624-762241a0dff4.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/efeitos/life/e712e2c7-ae0f-48a8-a26a-e8cde0a75edb.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="local_joystick" type="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -1500.0
+margin_right = 3000.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -690.0
+margin_right = 880.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnalogController" type="Node2D" parent="CanvasLayer"]
+z_index = 1000
+script = ExtResource( 1 )
+isDynamicallyShowing = true
+typeAnalogic = 4
+directionsResult = {
+"down": "down",
+"down_left": "down_left",
+"down_right": "down_right",
+"left": "left",
+"right": "right",
+"up": "up",
+"up_left": "up_left",
+"up_right": "up_right"
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+visible = false
+margin_left = -30.9325
+margin_top = 3.43599
+margin_right = 89.0675
+margin_bottom = 23.436
+rect_scale = Vector2( 5, 5 )
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+stretch_margin_left = 13
+stretch_margin_top = 11
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="CanvasLayer/Panel" to="CanvasLayer/AnalogController" method="_on_Panel_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Panel" to="CanvasLayer/AnalogController" method="_on_Panel_mouse_exited"]
+[connection signal="analogChange" from="CanvasLayer/AnalogController" to="CanvasLayer/AnalogController" method="_on_AnalogController_analogChange"]
+[connection signal="analogPressed" from="CanvasLayer/AnalogController" to="CanvasLayer/AnalogController" method="_on_AnalogController_analogPressed"]
+[connection signal="analogRelease" from="CanvasLayer/AnalogController" to="CanvasLayer/AnalogController" method="_on_AnalogController_analogRelease"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cenas/efeitos/emissao_engine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/naves_inimigas/weak pirate lvl 1.png" type="Texture" id=2]
+[ext_resource path="res://scripts/nave_inimiga1.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 88.3259, 55.8063 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 720.044
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 344.093
+
+[node name="nave_inimiga1" type="KinematicBody2D" groups=[
+"inimigos",
+]]
+position = Vector2( 592, 288 )
+z_index = 99
+script = ExtResource( 3 )
+
+[node name="emissao_engine2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -19.6052, 52.2137 )
+
+[node name="emissao_engine" parent="." instance=ExtResource( 1 )]
+position = Vector2( 26.7979, 51.9186 )
+
+[node name="sprite_nave1" type="Sprite" parent="."]
+position = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4, 6 )
+shape = SubResource( 1 )
+
+[node name="collision_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area"]
+shape = SubResource( 2 )
+
+[node name="collision_area_sambar" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area_sambar"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="collision_area" to="." method="_on_collision_area_body_entered"]
+[connection signal="body_exited" from="collision_area" to="." method="_on_collision_area_body_exited"]
+[connection signal="body_entered" from="collision_area_sambar" to="." method="_on_collision_area_sambar_body_entered"]
+[connection signal="body_exited" from="collision_area_sambar" to="." method="_on_collision_area_sambar_body_exited"]
