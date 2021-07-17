@@ -1,7 +1,12 @@
 extends Node
 
+# PEGANDO QUAL GALAXIA
+onready var global_analog = get_node("Galaxia1/GUI/CanvasLayer/AnalogController")
+
 var nave_carregada = false
 var nave_player = null
+
+
 
 var center_point = Vector2.ZERO
 var ball_pos = Vector2.ZERO
@@ -25,6 +30,7 @@ func short_angle_dist(from, to):
 	var difference = fmod(to - from, max_angle)
 	return fmod(2 * difference, max_angle) - difference
 	
+	
 func muda_direcao_com_lerp(rotation, position, point, smooth, delta ):
 	
 	#muda a direcao para o local aonde eu quero
@@ -32,7 +38,7 @@ func muda_direcao_com_lerp(rotation, position, point, smooth, delta ):
 	
 	#faz os requisistos para suaviazar a rotatoria
 	var facing:float = atan2(direction.x, direction.y)
-	var rota = lerp_angle(rotation, facing, smooth * delta)
+	var angulo = lerp_angle(rotation, facing, smooth * delta)
 	
 	# retorna a rotação do objeto, basta atribuir o valor retornado a variavel rotation do Node2D
-	return rota
+	return angulo

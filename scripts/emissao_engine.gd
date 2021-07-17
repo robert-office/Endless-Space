@@ -8,7 +8,7 @@ func _ready():
 func _process(delta):
 	
 	if parent != null:
-		var parent_parado = parent.parado
+		var parent_parado = parent.esta_parada
 		if parent_parado:
 			emitting = false
 		else:

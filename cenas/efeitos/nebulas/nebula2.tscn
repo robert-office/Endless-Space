@@ -11,6 +11,8 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="AnimatedSprite"]
+self_modulate = Color( 1, 1, 1, 0.654902 )
 position = Vector2( 5205.63, 3673.08 )
 scale = Vector2( 13.0627, 10.0528 )
+z_index = -100
 frames = SubResource( 1 )

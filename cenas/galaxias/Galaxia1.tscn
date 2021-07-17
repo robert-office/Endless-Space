@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/global.gd" type="Script" id=1]
 [ext_resource path="res://cenas/instanciadores/create_the_player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://cenas/agrupadores/objetos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cenas/Planets/Planeta_Earth.tscn" type="PackedScene" id=7]
 [ext_resource path="res://cenas/efeitos/parallax/Parallax_Effects.tscn" type="PackedScene" id=8]
+[ext_resource path="res://cenas/efeitos/nebulas/nebula2.tscn" type="PackedScene" id=9]
 
 [node name="global" type="Node"]
 script = ExtResource( 1 )
@@ -16,106 +17,101 @@ script = ExtResource( 1 )
 z_index = -101
 z_as_relative = false
 
-[node name="Main" type="Node2D" parent="."]
+[node name="Galaxia1" type="Node2D" parent="."]
 
-[node name="Efeitos" type="Node2D" parent="Main"]
+[node name="Planeta" type="Node2D" parent="Galaxia1"]
+position = Vector2( -108.998, 9275.22 )
+
+[node name="Planeta_Earth" parent="Galaxia1/Planeta" instance=ExtResource( 7 )]
+position = Vector2( -8.54053, -0.332031 )
+scale = Vector2( 3, 3 )
+z_index = -85
+
+[node name="Efeitos" type="Node2D" parent="Galaxia1"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="nebula4" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( 11134.1, -3890.58 )
-rotation = 0.575959
-scale = Vector2( 30.6971, 21.6742 )
+[node name="ParallaxBackground" parent="Galaxia1/Efeitos" instance=ExtResource( 8 )]
 
-[node name="nebula1" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( -7250.73, 6982.29 )
-rotation = 0.246091
-scale = Vector2( 15.6369, 16.2519 )
+[node name="Node2D" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -11606.2, 3133.6 )
+rotation = -0.986111
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="nebula2" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( 5781.02, 6519.95 )
-rotation = -2.11883
-scale = Vector2( 16.3992, 20.1771 )
+[node name="Node2D2" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 11177.8, 12861.6 )
+rotation = -0.986111
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="nebula3" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( -3630.34, 1280.18 )
-rotation = 2.95659
-scale = Vector2( 15.6369, 16.2519 )
+[node name="Node2D3" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 12073.8, -3906.4 )
+rotation = -0.986111
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="nebula5" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( 13054.1, 14157.4 )
-rotation = 2.40157
-scale = Vector2( 30.6971, 21.6742 )
+[node name="Node2D4" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -2523.54, 10154 )
+rotation = -0.986111
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="nebula6" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( -9345.93, 16717.4 )
-rotation = 3.50986
-scale = Vector2( 30.6971, 21.6742 )
+[node name="Node2D5" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -3798.18, -10946.4 )
+rotation = -0.246091
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="nebula7" parent="Main/Efeitos" instance=ExtResource( 5 )]
-position = Vector2( -14465.9, -3250.58 )
-rotation = 2.34398
-scale = Vector2( 30.6971, 21.6742 )
+[node name="Node2D6" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 24361.8, 5949.6 )
+rotation = 1.47829
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="ParallaxBackground" parent="Main/Efeitos" instance=ExtResource( 8 )]
-layer = -1
+[node name="Node2D7" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( -21590.2, -5442.4 )
+rotation = -1.2322
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="Objetos" parent="Main" instance=ExtResource( 6 )]
+[node name="Node2D8" parent="Galaxia1/Efeitos" instance=ExtResource( 5 )]
+position = Vector2( 13737.8, -14914.4 )
+rotation = 0.492183
+scale = Vector2( 33.2729, 29.6222 )
 
-[node name="generate_the_player" parent="Main/Objetos" instance=ExtResource( 2 )]
+[node name="Node2D9" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( -6826.37, -2982.92 )
+scale = Vector2( 23.3027, 15.3936 )
+
+[node name="Node2D10" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( 13525.6, 9049.08 )
+rotation = -0.755728
+scale = Vector2( 23.3027, 15.3936 )
+
+[node name="Node2D11" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( 4565.63, -6182.92 )
+rotation = -0.015708
+scale = Vector2( 23.3027, 15.3936 )
+
+[node name="Node2D12" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( -8106.37, 9305.08 )
+rotation = -0.755728
+scale = Vector2( 23.3027, 15.3936 )
+
+[node name="Node2D13" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( 3285.63, 15961.1 )
+rotation = 2.94088
+scale = Vector2( 23.3027, 15.3936 )
+
+[node name="Node2D14" parent="Galaxia1/Efeitos" instance=ExtResource( 9 )]
+position = Vector2( 8789.63, 1497.08 )
+rotation = 1.32645
+scale = Vector2( 23.323, 15.394 )
+
+[node name="Objetos" parent="Galaxia1" instance=ExtResource( 6 )]
+
+[node name="generate_the_player" parent="Galaxia1/Objetos" instance=ExtResource( 2 )]
 z_index = 100
 
-[node name="nave_inimiga1" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( 2474.69, -3959.86 )
+[node name="nave_inimiga1" parent="Galaxia1/Objetos" instance=ExtResource( 3 )]
+position = Vector2( -460.175, 983.793 )
 
-[node name="nave_inimiga2" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -4096.17, -5135.26 )
-
-[node name="nave_inimiga3" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -6327.52, 6142.41 )
-
-[node name="nave_inimiga4" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -11674.1, 5903.25 )
-
-[node name="nave_inimiga5" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( 6057.78, -1026.3 )
-
-[node name="nave_inimiga6" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -1696.63, 3538.72 )
-
-[node name="nave_inimiga7" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -2603.6, -2702.61 )
-
-[node name="nave_inimiga8" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -7587.86, 933.739 )
-
-[node name="nave_inimiga9" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( 7354.27, 3290.33 )
-
-[node name="nave_inimiga10" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -5855.01, -1956.14 )
-
-[node name="nave_inimiga11" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( 5276.68, -5565.74 )
-
-[node name="nave_inimiga12" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -10415.2, -333.01 )
-
-[node name="nave_inimiga13" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( -3032.34, 5335.67 )
-
-[node name="nave_inimiga14" parent="Main/Objetos" instance=ExtResource( 3 )]
-position = Vector2( 3939.87, 4828.29 )
-
-[node name="Planeta" type="Node2D" parent="Main"]
-position = Vector2( -108.998, 9275.22 )
-
-[node name="Planeta_Earth" parent="Main/Planeta" instance=ExtResource( 7 )]
-position = Vector2( -8.54053, -0.332031 )
-scale = Vector2( 3, 3 )
-
-[node name="GUI" parent="Main" instance=ExtResource( 4 )]
+[node name="GUI" parent="Galaxia1" instance=ExtResource( 4 )]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 3008.0

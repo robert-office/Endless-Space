@@ -355,21 +355,6 @@ func pause() -> void:
 func unpause() -> void:
 	local_paused = false
 
-func _on_AnalogController_analogChange(force, pos) -> void:
-	if NAVE_ATUAL != null:
-		NAVE_ATUAL.analog_relased = false
-		NAVE_ATUAL.mover_nave(force, pos)
-
-func _on_AnalogController_analogRelease() -> void:
-	if NAVE_ATUAL != null:
-		NAVE_ATUAL.analog_relased = true
-		NAVE_ATUAL.zerar_t_force()
-	pass
-
-func _on_AnalogController_analogPressed():
-	pass # Replace with function body.
-
-
 func _on_Panel_mouse_entered():
 	canShowAnallog = true
 

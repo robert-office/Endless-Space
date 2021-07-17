@@ -4,10 +4,9 @@
 [ext_resource path="res://Sprites/efeitos/paralax/pedra1.png" type="Texture" id=3]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-layer = 0
+layer = -1
 
 [node name="Stars" type="ParallaxLayer" parent="."]
-z_index = -80
 motion_scale = Vector2( 2.05, 2.05 )
 motion_mirroring = Vector2( 3000, 1500 )
 
@@ -72,7 +71,6 @@ scale = Vector2( 0.545343, 0.323635 )
 texture = ExtResource( 1 )
 
 [node name="Rocks" type="ParallaxLayer" parent="."]
-z_index = -80
 motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 3000, 1500 )
 

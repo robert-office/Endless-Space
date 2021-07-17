@@ -27,7 +27,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnalogController" type="Node2D" parent="CanvasLayer"]
+[node name="AnalogController" type="Node2D" parent="CanvasLayer" groups=[
+"analogico",
+]]
 z_index = 1000
 script = ExtResource( 1 )
 isDynamicallyShowing = true

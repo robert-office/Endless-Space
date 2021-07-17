@@ -28,7 +28,7 @@ var pediu_para_ir_local_sambado = false
 var chegou_no_local_sambando = false
 
 var velocity = Vector2()
-var parado = true
+var esta_parada = true
 var soma = null
 var target = null
 
@@ -130,11 +130,11 @@ func _process(delta):
 	
 	if modo_descanso:
 		if !perseguindo_player:
-			parado = true
+			esta_parada = true
 		else:
-			parado = false
+			esta_parada = false
 	else:
-		parado = false
+		esta_parada = false
 	
 	# rotação para o local que esta indo
 	if !perseguindo_player:

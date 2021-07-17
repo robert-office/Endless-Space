@@ -13,6 +13,7 @@ extents = Vector2( 95.1796, 183.494 )
 position = Vector2( 590.514, 311.131 )
 z_index = 100
 script = ExtResource( 2 )
+speed = 15
 
 [node name="sprite_nave2" type="Sprite" parent="."]
 position = Vector2( 0, 0.869141 )

@@ -6,7 +6,7 @@ func _ready():
 	# instancia a cena numa variavel, a cena da nava
 	var scene_nave = preload("res://cenas/naves/naves_player/nave_player1.tscn").instance()
 	# modifica a variavel que está nela
-	scene_nave.ativo = true
+	scene_nave.este_ativo = true
 	# adiciona a nave na cena atual
 	add_child(scene_nave)
 	
