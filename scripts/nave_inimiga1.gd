@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var speed = Vector2(400, 400)
 
@@ -27,7 +27,6 @@ var local_sambado = Vector2()
 var pediu_para_ir_local_sambado = false
 var chegou_no_local_sambando = false
 
-var velocity = Vector2()
 var esta_parada = true
 var soma = null
 var target = null
@@ -38,26 +37,26 @@ func _ready():
 	timer_loop_cria_pontos = Timer.new()
 	timer_loop_cria_pontos.set_one_shot(true)
 	timer_loop_cria_pontos.set_wait_time(delay_timer)
-	timer_loop_cria_pontos.connect("timeout", self, "on_timeout_complet")
+	timer_loop_cria_pontos.connect("timeout", Callable(self, "on_timeout_complet"))
 	add_child(timer_loop_cria_pontos)
 	
 	#cria um temporizidor para chamar uma função para a nave sair do modo de espera e voltar a voar novamente
 	timer_volta_a_voar = Timer.new()
 	timer_volta_a_voar.set_one_shot(true)
 	timer_volta_a_voar.set_wait_time(6)
-	timer_volta_a_voar.connect("timeout", self, "on_timeout_complet_volta_a_voar")
+	timer_volta_a_voar.connect("timeout", Callable(self, "on_timeout_complet_volta_a_voar"))
 	add_child(timer_volta_a_voar)
 	
 	timer_esquecer_player = Timer.new()
 	timer_esquecer_player.set_one_shot(true)
 	timer_esquecer_player.set_wait_time(10)
-	timer_esquecer_player.connect("timeout", self, "on_timeout_complet_esquecer_player")
+	timer_esquecer_player.connect("timeout", Callable(self, "on_timeout_complet_esquecer_player"))
 	add_child(timer_esquecer_player)
 	
 	timer_esquecer_samba_point = Timer.new()
 	timer_esquecer_samba_point.set_one_shot(true)
 	timer_esquecer_samba_point.set_wait_time(5)
-	timer_esquecer_samba_point.connect("timeout", self, "on_timeout_esquecer_samba_point")
+	timer_esquecer_samba_point.connect("timeout", Callable(self, "on_timeout_esquecer_samba_point"))
 	add_child(timer_esquecer_samba_point)
 
 
@@ -76,7 +75,7 @@ func _physics_process(delta):
 	if chegou_no_local:
 		randomize()
 		# 1 / 4 para parar a nave e ativar o timer de pausa
-		var rand = int( rand_range(1, 5) )
+		var rand = int( randf_range(1, 5) )
 		if rand != 3:
 #			print("o rand era: " + str(rand))
 			pediu_para_locomover = false
@@ -197,16 +196,16 @@ func criar_ponto_at(real_position, _min, _max):
 	var p_to_go = Vector2.ZERO
 	
 	randomize()
-	var pixels_a_decorrer_x = rand_range(_min, _max)
-	var pixels_a_decorrer_y = rand_range(_min, _max)
+	var pixels_a_decorrer_x = randf_range(_min, _max)
+	var pixels_a_decorrer_y = randf_range(_min, _max)
 	
 	var value_minimo = 200
 	var soma_pixels = int(pixels_a_decorrer_x) + int(pixels_a_decorrer_y)
 	
 	while soma_pixels < value_minimo:
 		randomize()
-		pixels_a_decorrer_x = rand_range(_min, _max)
-		pixels_a_decorrer_y = rand_range(_min, _max)
+		pixels_a_decorrer_x = randf_range(_min, _max)
+		pixels_a_decorrer_y = randf_range(_min, _max)
 		soma_pixels = int(pixels_a_decorrer_x) + int(pixels_a_decorrer_y)
 	
 	p_to_go.x = real_position.x + pixels_a_decorrer_x
@@ -226,7 +225,9 @@ func mover_nave_at(self_position, point):
 			chegou_no_local = true
 			pass
 	
-	velocity = move_and_slide( direction_vector.normalized() * speed)
+	set_velocity(direction_vector.normalized() * speed)
+	move_and_slide()
+	velocity = velocity
 	
 	return velocity
 

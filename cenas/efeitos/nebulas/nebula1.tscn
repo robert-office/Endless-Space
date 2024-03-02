@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/efeitos/nebulas/Nebula1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/efeitos/nebulas/Nebula1.png" type="Texture2D" id=1]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -10,7 +10,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="AnimatedSprite"]
+[node name="Node2D" type="AnimatedSprite2D"]
 self_modulate = Color( 1, 1, 1, 0.819608 )
 position = Vector2( 471.176, 290.331 )
 scale = Vector2( 1.24604, 1.02296 )

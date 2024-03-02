@@ -1,15 +1,7 @@
 extends Node
 
-# PEGANDO QUAL GALAXIA
-onready var global_analog = get_node("Galaxia1/GUI/CanvasLayer/AnalogController")
-
 var nave_carregada = false
 var nave_player = null
-
-
-
-var center_point = Vector2.ZERO
-var ball_pos = Vector2.ZERO
 
 # faz essa setagem para evitar erros
 var direction:Vector2
@@ -32,7 +24,6 @@ func short_angle_dist(from, to):
 	
 	
 func muda_direcao_com_lerp(rotation, position, point, smooth, delta ):
-	
 	#muda a direcao para o local aonde eu quero
 	direction = direction_to_point(position, point)
 	

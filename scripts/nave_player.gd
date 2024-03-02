@@ -2,12 +2,12 @@ extends Node2D
 
 class NavePlayer:
 	
-	var speed setget set_velocidade, get_velocidade
+	var speed : get = get_velocidade, set = set_velocidade
 	var velocity = Vector2.ZERO
-	var ativo = false setget set_nave_ativa, get_nave_ativa
-	var parado = true setget set_nave_parada, get_nave_parada
+	var ativo = false: get = get_nave_ativa, set = set_nave_ativa
+	var parado = true: get = get_nave_parada, set = set_nave_parada
 	var t_force = 0
-	var analog_relased = true
+	var ultima_direcao = Vector2.ZERO
 	
 	
 	func mover_nave(force, pos):
@@ -40,27 +40,42 @@ class NavePlayer:
 		return speed
 
 
-export(int) var speed
+@export var speed: int
 var NAVE_ATUAL = NavePlayer.new()
 
-var analog_relased = true
 var este_ativo = false
 var esta_parada = true
 
 func _ready():
-	get_tree().get_nodes_in_group("analogico")[0].connect("analogChange", self, "_on_Player_analogChange")
-	get_tree().get_nodes_in_group("analogico")[0].connect("analogPressed", self, "_on_Player_analogPressed")
-	get_tree().get_nodes_in_group("analogico")[0].connect("analogRelease", self, "_on_Player_analogRelease")
-	
 	NAVE_ATUAL.set_nave_ativa(true)
 	NAVE_ATUAL.set_velocidade(speed)
 
 #FAZ TODAS AS FUNÇÕES DA NAVE COM O RIDIBODY
 func _physics_process(_delta):
-	if !analog_relased:
-		rotation = global.muda_direcao_com_lerp(rotation, global.center_point, global.ball_pos, 15, _delta)
+	
+	var direcao = Vector2.ZERO
 
-	if analog_relased:
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("w"):
+		direcao.y -= 1
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("s"):
+		direcao.y += 1
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("a"):
+		direcao.x -= 1
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("d"):
+		direcao.x += 1
+
+	# Normalizar a direção para garantir que a nave não se mova mais rápido nas diagonais
+	direcao = direcao.normalized()
+
+	if direcao != Vector2.ZERO:
+		NAVE_ATUAL.ultima_direcao = direcao;
+		rotation = global.muda_direcao_com_lerp(rotation, Vector2(0, 0), direcao, 15, _delta)
+	else:
+		rotation = global.muda_direcao_com_lerp(rotation, Vector2(0, 0), NAVE_ATUAL.ultima_direcao, 15, _delta)
+	
+	if direcao != Vector2.ZERO:
+		NAVE_ATUAL.mover_nave(1, direcao)
+	else:
 		NAVE_ATUAL.parar_nave()
 	
 	#mexe a nave de acordo com a velocity
@@ -79,18 +94,5 @@ func _process(delta):
 	else:
 		NAVE_ATUAL.parado = true
 	
-	analog_relased = NAVE_ATUAL.analog_relased
 	este_ativo = NAVE_ATUAL.get_nave_ativa()
 	esta_parada = NAVE_ATUAL.get_nave_parada()
-
-
-func _on_Player_analogChange(force, pos) -> void:
-	NAVE_ATUAL.analog_relased = false
-	NAVE_ATUAL.mover_nave(force, pos)
-
-func _on_Player_analogRelease() -> void:
-	NAVE_ATUAL.analog_relased = true
-	NAVE_ATUAL.zerar_t_force()
-
-func _on_Player_analogPressed():
-	pass # Replace with function body.
