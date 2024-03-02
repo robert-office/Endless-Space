@@ -12,7 +12,8 @@ height = 232.0
 z_index = 100
 position = Vector2(590.514, 311.131)
 script = ExtResource("2")
-speed = 15
+speed = 3.0
+torque = 50
 
 [node name="sprite_nave1" type="Sprite2D" parent="."]
 rotation = 3.14159

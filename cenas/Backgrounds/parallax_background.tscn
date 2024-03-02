@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://d3gmr4gmispt4"]
 
-[ext_resource path="res://Sprites/backgrounds/1024x1024 Purple Nebula 5.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://cf5aamigavy1r" path="res://Sprites/backgrounds/1024x1024 Purple Nebula 5.png" id="1"]
 
 [node name="parallax_background" type="ParallaxBackground"]
 layer = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 4000, 1750 )
+motion_mirroring = Vector2(4000, 1750)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2( 1997.25, 873.232 )
-scale = Vector2( 0.977, 0.428 )
-texture = ExtResource( 1 )
+texture_filter = 3
+position = Vector2(1997.25, 873.232)
+scale = Vector2(0.977, 0.428)
+texture = ExtResource("1")

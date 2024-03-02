@@ -8,7 +8,7 @@ class NavePlayer:
 	var parado = true: get = get_nave_parada, set = set_nave_parada
 	var t_force = 0
 	var ultima_direcao = Vector2.ZERO
-	
+	var velocidade_atual = 0
 	
 	func mover_nave(force, pos):
 		velocity = (pos * force) * get_velocidade()
@@ -33,14 +33,16 @@ class NavePlayer:
 	func get_nave_ativa():
 		return ativo
 	
-	func set_velocidade(new_value):
+	func set_velocidade(new_value: float):
 		speed = new_value
 	
 	func get_velocidade():
 		return speed
 
 
-@export var speed: int
+@export var speed: float
+@export var torque: int
+
 var NAVE_ATUAL = NavePlayer.new()
 
 var este_ativo = false
@@ -73,9 +75,20 @@ func _physics_process(_delta):
 	else:
 		rotation = global.muda_direcao_com_lerp(rotation, Vector2(0, 0), NAVE_ATUAL.ultima_direcao, 15, _delta)
 	
+	# limita a velocidade para a atual, fazendo lerp, e para a nave com lerp
 	if direcao != Vector2.ZERO:
-		NAVE_ATUAL.mover_nave(1, direcao)
+		if NAVE_ATUAL.velocidade_atual < NAVE_ATUAL.speed:
+			NAVE_ATUAL.velocidade_atual += (NAVE_ATUAL.speed / torque)
+		else:
+			NAVE_ATUAL.velocidade_atual = NAVE_ATUAL.speed
+		
+		NAVE_ATUAL.mover_nave(NAVE_ATUAL.velocidade_atual, direcao)
 	else:
+		if NAVE_ATUAL.velocidade_atual > 0:
+			NAVE_ATUAL.velocidade_atual -= (NAVE_ATUAL.speed / torque)
+		else:
+			NAVE_ATUAL.velocidade_atual = 0;
+		
 		NAVE_ATUAL.parar_nave()
 	
 	#mexe a nave de acordo com a velocity

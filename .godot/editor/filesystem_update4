@@ -1,11 +1,8 @@
 res://default_env.tres
-res://cenas/galaxias/Galaxia1.tscn
-res://scripts/nave_inimiga1.gd
-res://addons/analog_controller/analog.gd
 res://cenas/GUI/GUI.tscn
-res://cenas/naves/naves_player/nave_player1.tscn
-res://cenas/camera/camera_viweport.tscn
-res://cenas/naves/naves_inimigas/nave_inimiga1.tscn
-res://scripts/global.gd
-res://scripts/nave_player.gd
+res://cenas/galaxias/Galaxia1.tscn
 res://cenas/efeitos/parallax/Parallax_Effects.tscn
+res://cenas/efeitos/parallax/Parallax_Background_Shader.gdshader
+res://cenas/naves/naves_player/nave_player1.tscn
+res://scripts/nave_player.gd
+res://cenas/Backgrounds/parallax_background.tscn

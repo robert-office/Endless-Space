@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://busjiudlf8wdh"]
+[gd_scene load_steps=4 format=3 uid="uid://busjiudlf8wdh"]
 
 [ext_resource type="Texture2D" uid="uid://bovvevfn3enck" path="res://Sprites/efeitos/paralax/star1.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bq8y0a7p3vsuj" path="res://Sprites/efeitos/paralax/pedra1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cf5aamigavy1r" path="res://Sprites/backgrounds/1024x1024 Purple Nebula 5.png" id="3_5n2kg"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 layer = -1
 
+[node name="Background" type="ParallaxLayer" parent="."]
+clip_children = 2
+motion_mirroring = Vector2(12000, 12000)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(3952, 3952)
+scale = Vector2(2.92969, 2.92969)
+texture = ExtResource("3_5n2kg")
+region_rect = Rect2(0, 0, 4096, 4096)
+
 [node name="Stars" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(2.05, 2.05)
+motion_scale = Vector2(1.7, 1.7)
 motion_mirroring = Vector2(4000, 2000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stars"]
@@ -210,6 +221,7 @@ texture = ExtResource("1")
 
 [node name="Rocks" type="ParallaxLayer" parent="."]
 skew = 0.171042
+motion_scale = Vector2(1.3, 1.3)
 motion_mirroring = Vector2(5600, 3500)
 
 [node name="Sprite2D" type="Sprite2D" parent="Rocks"]
