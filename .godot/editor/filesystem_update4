@@ -8,3 +8,4 @@ res://cenas/camera/camera_viweport.tscn
 res://cenas/naves/naves_inimigas/nave_inimiga1.tscn
 res://scripts/global.gd
 res://scripts/nave_player.gd
+res://cenas/efeitos/parallax/Parallax_Effects.tscn

@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnawss8cws1lg"]
+[gd_scene load_steps=13 format=3 uid="uid://dnawss8cws1lg"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1"]
 [ext_resource type="PackedScene" path="res://cenas/instanciadores/create_the_player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbhr3edpj77wu" path="res://cenas/naves/naves_inimigas/nave_inimiga1.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://csehywbahd4rq" path="res://cenas/GUI/GUI.tscn" id="4"]
 [ext_resource type="PackedScene" path="res://cenas/efeitos/nebulas/nebula1.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://cwl2gdp4tw0vc" path="res://Sprites/efeitos/nebulas/Nebula1.png" id="5_2s5rp"]
 [ext_resource type="PackedScene" path="res://cenas/agrupadores/objetos.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://cenas/Planets/Planeta_Earth.tscn" id="7"]
 [ext_resource type="Texture2D" uid="uid://cguoa1l42luh8" path="res://Sprites/efeitos/nebulas/Nebula2.png" id="7_aes36"]
-[ext_resource type="PackedScene" path="res://cenas/efeitos/parallax/Parallax_Effects.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://busjiudlf8wdh" path="res://cenas/efeitos/parallax/Parallax_Effects.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://cenas/efeitos/nebulas/nebula2.tscn" id="9"]
 
 [sub_resource type="SpriteFrames" id="1"]
@@ -146,9 +145,8 @@ z_index = 100
 [node name="nave_inimiga1" parent="Galaxia1/Objetos" instance=ExtResource("3")]
 position = Vector2(-460.175, 983.793)
 
-[node name="GUI" parent="Galaxia1" instance=ExtResource("4")]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 3008.0
-offset_bottom = 1508.0
-grow_vertical = 0
+[node name="nave_inimiga2" parent="Galaxia1/Objetos" instance=ExtResource("3")]
+position = Vector2(-483, 2749)
+
+[node name="nave_inimiga3" parent="Galaxia1/Objetos" instance=ExtResource("3")]
+position = Vector2(-1560, 4982)
